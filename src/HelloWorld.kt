@@ -33,9 +33,9 @@ fun main(args: Array<String>) {
     while (i < list.size) {
         println(list[i++])
     }
-    case(0L)
+    case('a')
     //過濾list
-    val positives = list.filter { x -> x > 0 }
+    val positives = list.filter { cat -> cat > 0 }
     val positives_1 = list.filter { it > 0 }
     var name = "123"
     //字符串插值
@@ -45,15 +45,33 @@ fun main(args: Array<String>) {
     person.age = 4
     person.name = "kotlin"
     println(person)
-    var list_1 = listOf("a","b","c")
-    for(arg in list_1){
+    var list_1 = listOf("a", "b", "c")
+    for (arg in list_1) {
         println(arg)
     }
 
     //map
-    var map = HashMap<Int,String>()
+    var map = HashMap<Int, String>()
 
+    filter()
+}
 
+/**
+ * 過濾方法
+ */
+fun filter() {
+    var list = ArrayList<Person>()
+    for (i in 1..50) {
+        var person = Person();
+        person.name = "name" + i
+        person.age = i
+        list.add(person)
+    }
+    //此時過濾條件中的必須是it
+    var filterList = list.filter { it.age > 10 }
+    println(filterList)
+    //此時過濾條件中的必須是
+    var filterList_1 = list.filter { cat ->cat.age>40 }
 }
 
 fun case(obj: Any) {
@@ -66,6 +84,8 @@ fun case(obj: Any) {
         else -> print("Unknown")
     }
 }
+
+
 //
 //fun max(a: Int, b: Int): Int {
 //    if (a > b) {
