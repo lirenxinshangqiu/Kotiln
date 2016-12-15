@@ -57,9 +57,10 @@ fun main(args: Array<String>) {
 }
 
 /**
+
  * 過濾方法
  */
-fun filter() {
+public fun filter() {
     var list = ArrayList<Person>()
     for (i in 1..50) {
         var person = Person();
@@ -71,7 +72,7 @@ fun filter() {
     var filterList = list.filter { it.age > 10 }
     println(filterList)
     //此時過濾條件中的必須是
-    var filterList_1 = list.filter { cat ->cat.age>40 }
+    var filterList_1 = list.filter { cat -> cat.age > 40 }
 }
 
 fun case(obj: Any) {
