@@ -17,7 +17,9 @@ fun main(args: Array<String>) {
     //    println(decimalDigitValue('1'))//字符不在1--9之间会抛出异常
     //    createArray()//创建数组
     stringFun()//字符串函数
-
+    stringFunFormat()//字符串模板
+    expressIf()//if表达式
+    expressWhen(4)//when表达式
 }
 
 /**
@@ -80,6 +82,70 @@ fun stringFun() {
     print(text)
 }
 
+/**
+ * 字符串模板,模板表达式
+ * 第一种:由一个$开头,包括另一个简单的名称
+ * 第二种:带有大括号的表达式,
+ */
 fun stringFunFormat() {
-    
+    var i: Int = 10
+    var str: String = "i = $i"
+    println(str)
+    val s = "abc"
+    val str1 = "the length of $s is ${s.length}"
+    println(str1)
 }
+
+/**
+ * if表达式
+ */
+fun expressIf() {
+    val a: Int = 10
+    val b: Int = 11
+    var max: Int
+    if (a < b) {
+        max = b
+    } else {
+        max = a
+    }
+    //真是卧槽了,为什么还能够这么写呢?
+    val max1 = if (a > b) a else b
+    val max2 = if (a > b) {
+        a
+        print("max num is$a")
+    } else {
+        b
+        print("max num is $b")
+    }
+}
+
+/**
+ * when 表达式
+ * 类似于switch -case
+ */
+fun expressWhen(x: Int) {
+    when (x) {
+        1 -> print("x == 1")
+        2 -> print("x==2")
+        3, 4 -> print("x ==3 or x ==4")
+        in 5..10 -> print(" x>=5 && x<=10")
+        else -> {
+            print("x is neither 1 nor 2")
+        }
+    }
+    val str: String = "1"//str.toInt()把字符串数字转化为Int值
+    println(str.toInt())
+
+    //此时用when表达式判断是否是某种类型的时候,只能够是相同类型的
+    val hasPrefix = when (str) {
+        is String -> str.startsWith("lu")
+        else -> false
+    }
+    //when也可以用来代替if-else if,如果没有任何参数提供,那么分支的条件就是简单地布尔表达式,当条件为真时执行相应的分支
+    when {
+        x.mod(2) == 1 -> print("$x 是 奇数")
+        else -> print("$x 是偶数")
+    }
+
+}
+
