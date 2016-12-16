@@ -145,6 +145,7 @@ fun expressWhen(x: Int) {
     when {
         x.mod(2) == 1 -> print("$x 是 奇数")
         else -> print("$x 是偶数")
+
     }
 
 }
