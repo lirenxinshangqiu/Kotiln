@@ -1,5 +1,7 @@
 package com.lsmtime.demo
 
+import java.util.*
+
 /**
  * Kotlin运算符,提供了中缀形式的运算符
  * Created by lsmtime on 2016/12/16.
@@ -20,6 +22,9 @@ fun main(args: Array<String>) {
     stringFunFormat()//字符串模板
     expressIf()//if表达式
     expressWhen(4)//when表达式
+
+    expressBreakAndContinue()//返回与跳转
+    foo()
 }
 
 /**
@@ -147,6 +152,49 @@ fun expressWhen(x: Int) {
         else -> print("$x 是偶数")
 
     }
+}
 
+/**
+ * 返回和跳转
+ * break continue和java中用法一致
+ * loop@ break@loop 结束循环后直接跳转到loop指定循环
+ */
+fun expressBreakAndContinue() {
+    loop@for (i in 1..100) {
+        println("i = $i")
+        for (j in 1..100) {
+            println("j = $j")
+            if (j == 10) {
+                println("i = $i ,j = $j")
+                break@loop
+            }
+        }
+    }
+}
+
+/**
+ * return
+ * lit@返回到最近的闭合函数
+ */
+fun foo() {
+    val list = ArrayList<Int>()
+    var i = 0
+    while (i < 10) {
+        list.add(i)
+        i++
+    }
+    //    list.forEach lit@{//只有当数据为5的时候没有打印
+    //        if(it == 5){
+    //            return@lit
+    //        }
+    //        println("list's element is $it")
+    //    }
+
+    list.forEach {
+        if (it == 5) {//只有当数据为5的时候没有打印,作用和continue类似
+            return@forEach
+        }
+        println("list's element is $it")
+    }
 }
 
