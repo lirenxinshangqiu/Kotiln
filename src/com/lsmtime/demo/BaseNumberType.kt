@@ -8,6 +8,9 @@ fun main(args: Array<String>) {
     numEqual1()
     intEqualLong()
     changeNumberType()
+    val str: String? = null
+    print(str?.length)
+
 }
 
 /**
@@ -40,9 +43,9 @@ fun intEqualLong() {
 
 fun changeNumberType() {
     val l = 1.toLong() + 1;
-    if(l is Long){
+    if (l is Long) {
         println("Long")
-    }else{
+    } else {
         print(l.javaClass.canonicalName)
     }
 }
