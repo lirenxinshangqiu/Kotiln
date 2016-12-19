@@ -25,6 +25,9 @@ fun main(args: Array<String>) {
 
     expressBreakAndContinue()//返回与跳转
     foo()
+
+    var invoice = Invoice("lushan")
+    print(invoice.getBaseInfo())
 }
 
 /**
@@ -191,7 +194,8 @@ fun foo() {
     //    }
 
     list.forEach {
-        if (it == 5) {//只有当数据为5的时候没有打印,作用和continue类似
+        if (it == 5) {
+            //只有当数据为5的时候没有打印,作用和continue类似
             return@forEach
         }
         println("list's element is $it")
