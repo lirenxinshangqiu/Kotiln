@@ -1,3 +1,4 @@
+import com.lsmtime.demo.bean.Address
 import java.util.*
 
 /**
@@ -54,6 +55,16 @@ fun main(args: Array<String>) {
     var map = HashMap<Int, String>()
 
     filter()
+    var message = Address().city;
+    println("城市：$message")
+}
+
+fun copyAddress(address: Address): Address {
+    var address1 = Address()
+    address1.city = address.city
+    address1.name = address.name
+    address1.street = address.street
+    return address1
 }
 
 /**
