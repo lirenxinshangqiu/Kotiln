@@ -26,8 +26,9 @@ fun main(args: Array<String>) {
     expressBreakAndContinue()//返回与跳转
     foo()
 
-    var invoice = Invoice(10, "qwe")
 
+
+    var invoice = Invoice(1,"lushan")
     print(invoice.getBaseInfo())
 }
 
